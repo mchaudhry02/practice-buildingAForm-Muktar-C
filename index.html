@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Feedback Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Website Feedback Form</h1>
+        <p class="form-description">We value your feedback! Please fill out this form to help us improve our services.</p>
 
+        <form action="/submit-feedback" method="POST">
+            <!-- Basic Information -->
+            <fieldset>
+                <legend>Basic Information</legend>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        placeholder="Enter your full name" 
+                        required 
+                        minlength="2"
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your.email@example.com" 
+                        required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password (for account verification) <span class="required">*</span></label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password" 
+                        required
+                        minlength="8"
+                    >
+                </div>
+            </fieldset>
+
+            <!-- Feedback Details -->
+            <fieldset>
+                <legend>Feedback Details</legend>
+                
+                <div class="form-group">
+                    <label for="category">Feedback Category <span class="required">*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="">-- Select a category --</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="feature" selected>Feature Request</option>
+                        <option value="usability">Usability Issue</option>
+                        <option value="content">Content Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comments <span class="required">*</span></label>
+                    <textarea 
+                        id="comments" 
+                        name="comments" 
+                        placeholder="Please share your detailed feedback here..." 
+                        required
+                        minlength="10"
+                        maxlength="1000"
+                    ></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Contact Preferences -->
+            <fieldset>
+                <legend>Contact Preferences</legend>
+                
+                <div class="form-group">
+                    <label>Preferred Contact Method <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input 
+                                type="radio" 
+                                id="contactEmail" 
+                                name="contactMethod" 
+                                value="email" 
+                                checked
+                                required
+                            >
+                            <label for="contactEmail">Email</label>
+                        </div>
+                        <div class="radio-option">
+                            <input 
+                                type="radio" 
+                                id="contactPhone" 
+                                name="contactMethod" 
+                                value="phone"
+                            >
+                            <label for="contactPhone">Phone</label>
+                        </div>
+                        <div class="radio-option">
+                            <input 
+                                type="radio" 
+                                id="contactNone" 
+                                name="contactMethod" 
+                                value="none"
+                            >
+                            <label for="contactNone">No contact needed</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Additional Interests -->
+            <fieldset>
+                <legend>Additional Features of Interest</legend>
+                
+                <div class="form-group">
+                    <label>Select features you'd like to see:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input 
+                                type="checkbox" 
+                                id="newsletter" 
+                                name="features" 
+                                value="newsletter"
+                                checked
+                            >
+                            <label for="newsletter">Newsletter subscription</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input 
+                                type="checkbox" 
+                                id="darkMode" 
+                                name="features" 
+                                value="darkMode"
+                            >
+                            <label for="darkMode">Dark mode</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input 
+                                type="checkbox" 
+                                id="mobileApp" 
+                                name="features" 
+                                value="mobileApp"
+                            >
+                            <label for="mobileApp">Mobile app</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input 
+                                type="checkbox" 
+                                id="notifications" 
+                                name="features" 
+                                value="notifications"
+                            >
+                            <label for="notifications">Push notifications</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+    </div>
+</body>
+</html>
